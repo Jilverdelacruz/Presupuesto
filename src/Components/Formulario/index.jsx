@@ -1,23 +1,49 @@
 
 import { useState } from "react";
+import Error from '../Error'
 
 const Formulario = () =>{
+    const [nombreGasto, setNombreGasto] = useState('')
+    const [cantiGasto, setCantiGasto] = useState(0)
+    const [error, actualizarError] = useState(false)
 
+    const definirNombre = e => {
+        setNombreGasto(e.target.value)
+    }
+    const agregarGasto = e =>{
+        e.preventDefault()
+
+        // validar
+        if(cantiGasto < 1 || isNaN(cantiGasto) || nombreGasto.trim() === ''){
+            actualizarError(true)
+            return;
+        }
+        //construir el gasto
+        actualizarError(false)
+        // pasar el gasto al componente principal
+
+        // resetear el form
+    }
     return(
-        <>
-            <form>
+        <>  
+            <form onSubmit={agregarGasto}>
                 <h2>Gatos</h2>
+                {error ? <Error mensaje='Volver a indicar los valores'/> : null}
                 <label>Nombre del Gasto</label>
                 <input
                 type='text'
                 className='u-full-width'
                 placeholder='Eje: Movilidad'
+                value={nombreGasto}
+                onChange={definirNombre}
                 />
                 <label>Cantidad del Gasto</label>
                 <input
                 type='number'
                 className='u-full-width'
                 placeholder='Eje: 30'
+                value={cantiGasto}
+                onChange={e => setCantiGasto(parseInt(e.target.value, 10))}
                 />
                 <input
                 type='submit'
