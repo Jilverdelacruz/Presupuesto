@@ -1,4 +1,4 @@
-
+import PropTypes from 'prop-types'
 const Gastos = ({gasto}) => (
     <li className='gastos'>
         <p>{gasto.nombreGasto}
@@ -7,5 +7,7 @@ const Gastos = ({gasto}) => (
     </li>
     
 )
-
+Gastos.propTypes ={
+    gasto: PropTypes.object.isRequired
+}
 export default Gastos

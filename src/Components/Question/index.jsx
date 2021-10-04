@@ -1,6 +1,6 @@
 import Error from '../Error'
 import {useState} from 'react'
-
+import PropTypes from 'prop-types'
 
 const Question = ({guardarPresupuesto, guardarSobrante, actualizarPregunta}) =>{
 
@@ -45,6 +45,12 @@ const Question = ({guardarPresupuesto, guardarSobrante, actualizarPregunta}) =>{
             </form>
         </>
     )
+}
+
+Question.propTypes = {
+    guardarPresupuesto: PropTypes.func.isRequired, 
+    guardarSobrante: PropTypes.func.isRequired, 
+    actualizarPregunta: PropTypes.func.isRequired
 }
 
 export default Question

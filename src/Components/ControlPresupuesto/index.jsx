@@ -1,4 +1,5 @@
 import { estiloPresupuesto } from "../Helper"
+import PropTypes from 'prop-types'
 
 const ControlPresupuesto = ({presupuesto, sobrante}) =>{
 
@@ -12,6 +13,11 @@ const ControlPresupuesto = ({presupuesto, sobrante}) =>{
             </div>
         </>
     )
+}
+
+ControlPresupuesto.propTypes = {
+    presupuesto: PropTypes.number.isRequired,
+    sobrante: PropTypes.number.isRequired
 }
 
 export default ControlPresupuesto
