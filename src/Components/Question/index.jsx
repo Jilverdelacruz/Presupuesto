@@ -1,6 +1,7 @@
 import Error from '../Error'
 import {useState} from 'react'
 
+
 const Question = ({guardarPresupuesto, guardarSobrante, actualizarPregunta}) =>{
 
     const [cantidad, setCantidad] = useState(0)
